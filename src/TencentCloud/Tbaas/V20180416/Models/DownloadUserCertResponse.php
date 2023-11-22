@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setCertName(string $CertName) 设置证书名称
  * @method string getCertCtx() 获取证书内容
  * @method void setCertCtx(string $CertCtx) 设置证书内容
+ * @method string getCert() 获取证书内容
+ * @method void setCert(string $Cert) 设置证书内容
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
@@ -36,8 +38,14 @@ class DownloadUserCertResponse extends AbstractModel
 
     /**
      * @var string 证书内容
+     * @deprecated
      */
     public $CertCtx;
+
+    /**
+     * @var string 证书内容
+     */
+    public $Cert;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -47,6 +55,7 @@ class DownloadUserCertResponse extends AbstractModel
     /**
      * @param string $CertName 证书名称
      * @param string $CertCtx 证书内容
+     * @param string $Cert 证书内容
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -68,6 +77,10 @@ class DownloadUserCertResponse extends AbstractModel
 
         if (array_key_exists("CertCtx",$param) and $param["CertCtx"] !== null) {
             $this->CertCtx = $param["CertCtx"];
+        }
+
+        if (array_key_exists("Cert",$param) and $param["Cert"] !== null) {
+            $this->Cert = $param["Cert"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
